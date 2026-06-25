@@ -136,13 +136,18 @@ The Sevalile Bot demonstrates an effective implementation of a mobile-controlled
 
 ## Authors
 
-Your Name
+Nitish
 
-Institution / Department
+| L298N | ESP32           |
+| ----- | --------------- |
+| IN1   | GPIO 27         |
+| IN2   | GPIO 26         |
+| IN3   | GPIO 25         |
+| IN4   | GPIO 33         |
+| ENA   | 5V (or PWM pin) |
+| ENB   | 5V (or PWM pin) |
+| GND   | GND             |
 
-Year
-
----
 
 ## License
 
