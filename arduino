@@ -1,0 +1,91 @@
+#define CUSTOM_SETTINGS
+#define INCLUDE_GAMEPAD_MODULE
+
+#include <DabbleESP32.h>
+
+// Motor Pins
+#define IN1 27
+#define IN2 26
+#define IN3 25
+#define IN4 33
+
+void setup() {
+
+  Serial.begin(115200);
+
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+
+  stopRobot();
+
+  // Bluetooth Name
+  Dabble.begin("Sevalile_Bot");
+}
+
+void loop() {
+
+  Dabble.processInput();
+
+  if (GamePad.isUpPressed()) {
+    moveForward();
+  }
+  else if (GamePad.isDownPressed()) {
+    moveBackward();
+  }
+  else if (GamePad.isLeftPressed()) {
+    turnLeft();
+  }
+  else if (GamePad.isRightPressed()) {
+    turnRight();
+  }
+  else {
+    stopRobot();
+  }
+}
+
+// Forward
+void moveForward() {
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+}
+
+// Backward
+void moveBackward() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+}
+
+// Left Turn
+void turnLeft() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+}
+
+// Right Turn
+void turnRight() {
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+}
+
+// Stop
+void stopRobot() {
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, LOW);
+}
