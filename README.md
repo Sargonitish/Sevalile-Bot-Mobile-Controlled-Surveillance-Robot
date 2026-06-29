@@ -281,10 +281,7 @@ The robot was successfully tested and achieved:
 ## 👨‍💻 Authors
 
 * NITISH S
-* THIRUMURUGAN D
-* SIDDHARTH P
-* MUGILAN L
-* PRAVEEN KUMAR P
+
 
 Department of Computer Science and Engineering
 
